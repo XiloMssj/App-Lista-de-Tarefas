@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Minha Lista de Tarefas</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📋</text></svg>">
+
+</head>
+
+<body>
+
+    <h1>Lista de Tarefas</h1>
+
+    <div class="barra-filtros">
+
+        <div class="filtro pesquisa">
+
+            <label for="pesquisaTarefa">
+                Pesquisar tarefa
+            </label>
+
+            <input
+                type="text"
+                id="pesquisaTarefa"
+                placeholder="Pesquisar tarefa..."
+            >
+
+        </div>
+
+        <div class="filtro">
+
+            <label for="filtroPrioridade">
+                Prioridade
+            </label>
+
+            <select id="filtroPrioridade">
+
+                <option value="todas">
+                    Todas
+                </option>
+
+                <option value="alta">
+                    🔴 Alta
+                </option>
+
+                <option value="media">
+                    🟡 Média
+                </option>
+
+                <option value="baixa">
+                    🟢 Baixa
+                </option>
+
+            </select>
+
+            <div class="filtro">
+                 <label for="ordenacao">
+                    Ordenar por
+                </label>
+
+                <select id="ordenacao">
+
+                    <option value="padrao">
+                        Padrão
+                    </option>
+
+                    <option value="nome_asc">
+                        Nome: A → Z
+                    </option>
+
+                    <option value="nome_desc">
+                        Nome: Z → A
+                    </option>
+
+                    <option value="data_asc">
+                        Data: mais antiga
+                    </option>
+
+                    <option value="data_desc">
+                        Data: mais recente
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <main class="container">
+
+        <div class="app">
+
+            <section class="cadastro">
+
+                <h2>Nova tarefa</h2>
+
+                <form id="formTarefa">
+
+
+                    <label for="nome">
+                        Nome da tarefa
+                    </label>
+
+                    <input
+                        type="text"
+                        id="nome"
+                        placeholder="Ex: Estudar"
+                        required
+                    >
+
+
+                    <label for="descricao">
+                        Descrição
+                    </label>
+
+                    <textarea
+                        id="descricao"
+                        placeholder="Descreva a tarefa..."
+                        required
+                    ></textarea>
+
+
+                    <label for="data">
+                        Data inicio
+                    </label>
+
+                    <input
+                        type="date"
+                        id="data"
+                        required
+                    >
+
+                    <label for="hora">
+                        Hora inicio
+                    </label>
+
+                    <input
+                        type="time"
+                        id="hora"
+                        required
+                    >
+
+                    <label for="prioridade">Prioridade:</label>
+
+                    <select id="prioridade">
+
+                        <option value="baixa">🟢 Baixa</option>
+
+                        <option value="media">🟡 Média</option>
+
+                        <option value="alta">🔴 Alta</option>
+
+                    </select>
+
+                    <button type="submit">
+                        Adicionar tarefa
+                    </button>
+
+                </form>
+
+            </section>
+
+            <section class="lista">
+
+                <div class="lista-header">
+                    <h2>Tarefas pendentes</h2>
+
+                    <span id="contadorPendentes">
+                        0 tarefas
+                    </span>
+
+                </div>
+
+                <div id="tarefasPendentes"></div>
+
+            </section>
+
+            <section class="lista concluidas">
+
+                <div class="lista-header">
+                    <h2>Tarefas concluídas</h2>
+
+                    <span id="contadorConcluidas">
+                        0 tarefas
+                    </span>
+                </div>
+
+                <div id="tarefasConcluidas"></div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+<!--  MODAL PARA EXCLUIR UMA TAREFA -->
+
+    <div id="modalExcluir" class="modal">
+
+        <div class="modal-conteudo">
+
+            <h2>⚠️ Excluir tarefa?</h2>
+
+            <p id="mensagemExclusao">
+                Tem certeza que deseja excluir esta tarefa?
+            </p>
+
+            <div class="modal-acoes">
+
+                <button
+                    id="btnCancelarExclusao"
+                    class="btn-cancelar">
+
+                    Cancelar
+
+                </button>
+
+                <button
+                    id="btnConfirmarExclusao"
+                    class="btn-confirmar">
+
+                    Excluir
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
